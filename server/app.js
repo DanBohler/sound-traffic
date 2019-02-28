@@ -3,7 +3,6 @@ require('dotenv').config();
 const bodyParser   = require('body-parser');
 const cookieParser = require('cookie-parser');
 const express      = require('express');
-const favicon      = require('serve-favicon');
 const mongoose     = require('mongoose');
 const logger       = require('morgan');
 const path         = require('path');
@@ -30,7 +29,7 @@ const app = express();
 
 app.use(cors({
   credentials: true,
-  origin: ['http://localhost:3000']
+  origin: ['http://localhost:3000', 'https://sound-traffic.herokuapp.com']
 }))
 
 // Middleware Setup
@@ -66,7 +65,7 @@ const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
 app.use((req, res, next) => {
-  res.sendFile(__dirname + "/public/index.html");
+  res.sendFile(__dirname + "./public/index.html");
  });
 
 module.exports = app;

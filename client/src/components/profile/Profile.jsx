@@ -6,30 +6,15 @@ import AuthService from '../auth/AuthService'
 export default class Profile extends Component {
   constructor(props) {
 		super(props);
-    this.state = { username: '', campus: '', course: '', imageUrl: ''};
+    this.state = {
+    user : { username: '', campus: '', course: '', imageUrl: ''}
+    }
+  
     this.authService = new AuthService();
     this.apiService = new apiService();
     this.userLoad()
 	}
   
-  handleSubmitUpdateUsername = e => {
-    e.preventDefault()
-
-    this.authService.updateUsername(this.state.username).then(usernameUpdateConfirmation =>{
-
-      let newState = {
-        ...this.state,
-        username: usernameUpdateConfirmation.newUsername
-      }
-
-      if (usernameUpdateConfirmation.userUpdated) {
-        newState.showTickOk = true
-      }
-      
-      this.setState(newState)
-    })
-  }
-
   handleFileUpload = e => {
     console.log("The file to be uploaded is: ", e.target.files[0]);
 
@@ -37,37 +22,20 @@ export default class Profile extends Component {
     uploadData.append("imageUrl", e.target.files[0]);
     this.apiService.handleUpload(uploadData)
     .then(response => {
-      this.setState({...this.state, imageUrl: response.secure_url})
+      let newState = {...this.state}
+      newState.user.imageUrl = response.secure_url;
+      this.setState({newState}, () =>{
+        this.apiService.saveNewPhoto(this.state.user.imageUrl, this.state.user.username)
+        .then((data) => {
+          console.log(data)
+        })
+      })
     })
     .catch(err => {
       console.log("Error while uploading the file: ", err);
     });
   }
-  
-  handleSubmit = e => {
-    e.preventDefault();
-    this.apiService.saveNewPhoto(this.state)
-    .then(res => {
-      console.log('added: ', res);
-    })
-    .catch(err => {
-      console.log("Error while adding the photo: ", err);
-    });
-  }  
-  
-  handleChange(e) {
-    this.setState({
-      ...this.state,
-      file: e.target.files[0]
-    })
-  }
-  
-  handleChangeUsername(e) {
-    this.setState({
-      ...this.state,
-      username: e.target.value
-    })
-  }
+    
   
   logoutUser = () =>{
     this.authService.logout()
@@ -78,17 +46,31 @@ export default class Profile extends Component {
   
   userLoad() {
     this.authService.loggedin()
-    .then(user=>this.setState({...this.state,user}));
+    .then(user=>{
+      
+      let newState = {...this.state}
+      newState.user.username = user.username;
+      newState.user.imageUrl = user.imageUrl;
+      newState.user.campus = user.campus;
+      newState.user.course = user.course;
+      this.setState({newState})
+      
+      // this.setState({...this.state,user})
+    }
+      );
+    
+    console.log(this.state)
 	}
   
   render() {
     if(this.state.user){
       return(
-        <div>
+        <div className="profile-style">
         <h1>Profile</h1>
         <ul>
           <p>Image</p>
-          <li>{this.state.user.imageUrl}</li>
+          
+          <img className="img-profile" src={this.state.user.imageUrl} alt=""/>
           <p>Username</p>
           <li>{this.state.user.username}</li>
           <p>Campus</p>
@@ -100,13 +82,11 @@ export default class Profile extends Component {
 
         {(this.state.showTickOk) ? <p>updated ok</p> : ""}
 
-        <form onSubmit={(e)=>this.handleSubmitUpdateUsername(e)}>
-          <input type="text" value={this.state.username} onChange={(e)=>this.handleChangeUsername(e)} />
+        {/* <form onSubmit={e => this.handleSubmit(e)}> */}
           <input type="file" onChange={(e) => this.handleFileUpload(e)}/>  <br/>
           <button type="submit">Save Profile</button>
-        </form>
+        {/* </form> */}
 
-         {/* <img key={this.state.imageUrl} src={this.state.imageUrl} alt="" /> */}
           <Link to='/'>
             <button onClick={() => this.logoutUser()}>Logout</button>
           </Link> 

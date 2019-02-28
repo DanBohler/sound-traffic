@@ -3,7 +3,7 @@ import axios from 'axios';
 class Service {
   constructor() {
     let service = axios.create({
-      baseURL: 'http://localhost:5000/api',
+      baseURL: `${process.env.REACT_APP_API_URL}/api`,
     });
     this.service = service;
   }
@@ -13,11 +13,18 @@ class Service {
     throw err;
   };
 
-  handleUpload = (theFile => {
+  handleUpload = (theFile) => {
     return this.service.post('/upload', theFile)
       .then(res => res.data)
       .catch(this.errorHandler);
-  })
+  };
+
+  saveNewPhoto = (imageUrl , username) => {
+    console.log(imageUrl)
+    return this.service.post('/updatephoto', {imageUrl, username})
+      .then(res => res.data)
+      .catch(this.errorHandler);
+  }
 
 }
 
