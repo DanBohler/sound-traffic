@@ -66,26 +66,15 @@ export default class Profile extends Component {
     if(this.state.user){
       return(
         <div className="profile-style">
-        <h1>Profile</h1>
-        <ul>
-          <p>Image</p>
-          
+        <div className="ul-container">
+          <h1>{this.state.user.username}</h1>
           <img className="img-profile" src={this.state.user.imageUrl} alt=""/>
-          <p>Username</p>
-          <li>{this.state.user.username}</li>
-          <p>Campus</p>
-          <li>{this.state.user.campus}</li>
-          <p>Course</p>
-          <li>{this.state.user.course}</li>
-        </ul>
-        <h2>Photo Upload</h2>
-
+          <p>Photo edit</p>
+        </div>
         {(this.state.showTickOk) ? <p>updated ok</p> : ""}
 
-        {/* <form onSubmit={e => this.handleSubmit(e)}> */}
-          <input type="file" onChange={(e) => this.handleFileUpload(e)}/>  <br/>
+          <input type="file" onChange={(e) => this.handleFileUpload(e)}/>
           <button type="submit">Save Profile</button>
-        {/* </form> */}
 
           <Link to='/'>
             <button onClick={() => this.logoutUser()}>Logout</button>

@@ -42,7 +42,7 @@ class Login extends Component {
   render() {
 
     return (
-    <div>
+    <div className="profile-style">
       {this.state.redirect ? <Redirect to="/profile"/> : ""}
 
       <h3>Please, login to our site</h3>
@@ -58,7 +58,7 @@ class Login extends Component {
           <input type="password" name="password" value={this.state.password} onChange={e => this.handleChange(e)} />
         </fieldset>
 
-        <input type="submit" value="Login" />
+        <input className="input-style" type="submit" value="Login" />
       </form>
       If you don't have an account yet, you can create your account 
       <Link to={'/signup'}> here</Link>

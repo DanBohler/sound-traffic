@@ -9,17 +9,7 @@ router.post('/upload', uploader.single("imageUrl"), (req, res, next) => {
       next(new Error('No file uploaded!'));
       return;
     }
-    // User.findOneAndUpdate({username: req.body.username},{imageUrl: req.file.secure_url},{new: true})
-    // .then((user)=>{
-    //   console.log(req.file)
-    //   console.log(user)
-    //   res.status(200).json({user})
-    // })
-    // .catch((err)=>{console.log(err)})
     res.json({ secure_url: req.file.secure_url })
-    // console.log(req.file.secure_url);
-
-
 })
 
 router.post('/updatephoto', (req, res, next) => {
