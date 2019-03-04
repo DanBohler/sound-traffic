@@ -1,14 +1,14 @@
-const express = require ('express');
-const passport = require ('passport');
-const authRoutes = express.Router ();
-const User = require ('../models/User');
+const express     = require ('express');
+const passport    = require ('passport');
+const authRoutes  = express.Router ();
+const User        = require ('../models/User');
 
 // Bcrypt to encrypt passwords
 const bcrypt = require ('bcryptjs');
 const bcryptSalt = 10;
 
 authRoutes.post ('/signup', (req, res, next) => {
-  const {username, password, campus, course} = req.body.profile
+  const {username, password} = req.body.profile
 
   if (!username || !password) {
     res.status (400).json ({message: 'Provide username and password'});
@@ -39,8 +39,6 @@ authRoutes.post ('/signup', (req, res, next) => {
     const aNewUser = new User ({
       username: username,
       password: hashPass,
-      campus: campus,
-      course: course,
     });
 
     aNewUser.save(user => {

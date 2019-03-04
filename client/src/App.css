@@ -1,12 +1,9 @@
 .App {
-  background-image: url('../src/STblancLogo.svg');
-  background-repeat: no-repeat;
-  background-size: 180px 100px;
   background-position: top;
   margin: 0px;
   padding: 0px 10px 0px 10px;
   text-align: center;
-  background-color: #282c34;
+  background-color: black;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -17,42 +14,93 @@
   color: white;
 }
 
+.logo-styles {
+  width: 190px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+
+}
+
 .homepage-style {
-  height: 400px;
+  width: -webkit-fill-available;
+  height: -webkit-fill-available;
   padding: 10px;
 }
 
-.homepage-style p{
-  margin-bottom: 20px;
+.home-container{
+  display: grid;
+  margin-top: 25%;
+  justify-content: center;
 }
 
-.homepage-a {
-  text-decoration: none;
-  color: white;
-  background-color: gray;
-  border-radius: 40px;
+.home-container p {
+  margin: 20px
+}
+
+.link-style {
+  background-color: white;
+  color: black;
+  padding: 11px;
+  border-radius: 7px;
+  text-align: center;
   font-size: inherit;
-  margin: 20px;
+  text-decoration: none;
+  margin: 7px;
 }
 
 .profile-style {
   width: -webkit-fill-available;
   height: -webkit-fill-available;
-  margin-top: 100px;
+  padding-top: 100px;
 }
 
-.profile-style fieldset {
-  border: 0;
+.profile-style a {
+  text-decoration: none;
 }
 
 .input-style {
-  width: 66px;
+  margin-left: auto;
+  margin-right: auto;
   height: 40px;
   color: white;
-  background-color: gray;
-  border-radius: 40px;
+  background-color: black;
+  border-radius: 7px;
   font-size: inherit;
-  margin: 20px;
+  margin-top: 180px;
+  border-width: 5px;
+  width: 287px;
+}
+
+.input-style input:hover { 
+  color:#fff 
+}
+
+.input-profile {
+  margin-top: 14px;
+    margin-left: auto;
+    margin-right: auto;
+    border: none;
+    color: black;
+    text-decoration: none;
+    display: inline-block;
+    background-color: white;
+    border: 1px solid gray;
+    border-radius: 4px;
+}
+
+.input-profile input:hover {
+  background-color: purple;
+  color: white;
+}
+
+.edit-profile label {
+  font-size: medium;
+  padding: 2px;
+  width: min-content;
+  border-radius: 4px;
+  box-shadow: inset 0 0 47px purple;
+  list-style-type: none;
 }
 
 .profile-style h1, h2, ul, p {
@@ -63,8 +111,9 @@
 }
 
 .ul-container {
-  display: flex;
-  flex-direction: row;
+  display: grid;
+  text-align: left;
+  width: fit-content;
 }
 
 .ul-container p {
@@ -73,17 +122,84 @@
   align-items: center;
 }
 
+.profile-container {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+.align-profile {
+  justify-content: space-between
+}
+
+.profile-user {
+  margin: 3px;
+  /* text-align: left; */
+  font-size: x-large;
+}
+
+.signup-styles {
+  display: grid;
+  justify-content: center;
+  text-align: left;
+  margin-top: 150px;
+  margin-top: 66px;
+}
+
 .signup-styles form {
-  height: 200px;
-  max-width: 200px;
-  margin: auto;
+  display: grid;
+  margin-left: 150px
+}
+
+.signup-styles input {
+  font-size: larger;
+  padding-left: 10px;
+  margin-top: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 280px;
+  height: 40px;
+  border-radius: 8px;
+  -moz-box-shadow:    inset 0 0 8px #000000;
+  -webkit-box-shadow: inset 0 0 8px #000000;
+  box-shadow:         inset 0 0 8px #dbdbdb;
+  display: grid;
+}
+
+input:active { 
+  color: purple; 
+}
+input:focus {
+  outline: none;
+  border: solid purple;
+  box-shadow: 0 0 10px #719ECE;
+}
+
+.signup-container{
+  display: grid;
+  justify-content: center
 }
 
 .img-profile {
+  flex: 2;
   width: 100px;
   height: 100px;
-  border-radius: 50%;
+  border-radius: 10%;
 }
+
+.photo-input {
+  width: 0.1px;
+  height: 0.1px;
+  z-index: -1;
+  
+}
+
+.map-styles {
+  height: 170px;
+  width: 170px;
+  margin-top: 18px;
+}
+
 
 .App-link {
   color: #61dafb;

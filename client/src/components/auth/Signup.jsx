@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import AuthService from './AuthService';
-import { Link } from 'react-router-dom';
+import { Redirect, Link } from 'react-router-dom';
+import Icon from '../auth/logo-blanco.svg'
+
 
 class Signup extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: ''};
+    this.state = { username: '', password: '', redirect: false};
     this.service = new AuthService();
   }
 
@@ -22,6 +24,7 @@ class Signup extends Component {
         this.setState({
           username: '',
           password: '',
+          redirect: true,
         });
         this.props.getUser(response)
       })
@@ -37,9 +40,13 @@ class Signup extends Component {
 
   render() {
     return (
-      <div className="signup-styles">
-        <h1>IronProfile</h1>
+      <div className="homepage-style">
+        {this.state.redirect ? <Redirect to="/login" /> : ''}
+        <div className="logo-styles">
+          <img src={Icon} alt=""></img>
+        </div>
         <form onSubmit={this.handleFormSubmit}>
+         <div className="signup-styles">
           <label>Username:</label>
           <input
             type="text"
@@ -54,14 +61,15 @@ class Signup extends Component {
             value={this.state.password}
             onChange={(e) => this.handleChange(e)}
           />
-          <br></br>
-          <input type="submit" value="Create the account" />
+          </div>
+        <input className="input-style" type="submit" value="Signup" />
         </form>
-
-        <p>
-          Already have account?
+        <div className="signup-container">
+          <p>
+            Already have account?
           <Link to={'/login'}> Login</Link>
-        </p>
+          </p>
+        </div>
       </div>
     );
   }
