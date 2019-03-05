@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
-import Icon from '../auth/logo-blanco.svg'
+import Icon from '../../logo/logo-blanco.svg'
 
 export default class Home extends Component {
   render() {

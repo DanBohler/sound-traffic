@@ -6,6 +6,7 @@ import HomePage from './components/home/HomePage'
 import { Switch, Route } from 'react-router-dom';
 import AuthService from './components/auth/AuthService';
 import Profile from './components/profile/Profile';
+import ListAdverts from './components/advert/ListAdverts'
 
 class App extends Component {
   constructor(props){
@@ -42,8 +43,10 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage}/>
           <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/adverts" component={ListAdverts}/>
           <Route exact path="/signup" render={() => <Signup getUser={this.getTheUser}/>}/>
           <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
+
         </Switch>
       </div>
     )

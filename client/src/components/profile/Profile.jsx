@@ -4,6 +4,11 @@ import apiService from '../../api/service';
 import AuthService from '../auth/AuthService';
 import MapView from '../map/MapView';
 
+import addLogo from '../../logo/baseline-add_box-24px.svg'
+import smsLogo from '../../logo/baseline-email-24px.svg'
+import profilelogo from '../../logo/baseline-person-24px.svg'
+import listAll from '../../logo/baseline-list_alt-24px.svg'
+
 export default class Profile extends Component {
   static defaultProps = {
     center: {
@@ -58,12 +63,11 @@ export default class Profile extends Component {
   };
 
   userLoad() {
-    this.authService.loggedin().then((user) => {
+    this.authService.loggedin()
+    .then((user) => {
       let newState = { ...this.state };
       newState.user.username = user.username;
       newState.user.imageUrl = user.imageUrl;
-      newState.user.campus = user.campus;
-      newState.user.course = user.course;
       this.setState({ newState });
     });
 
@@ -107,6 +111,12 @@ export default class Profile extends Component {
             <div className="map-styles">
               <MapView/>
             </div>
+          </div>
+          <div className="tool-bar">
+          <Link to={'/createad'} ><img src={addLogo} alt="" /></Link>
+          <Link to={'/adverts'} ><img src={listAll} alt="" /></Link>
+          <Link to={'/mesagges'} ><img src={smsLogo} alt="" /></Link>
+          <Link to={'/profile'} ><img src={profilelogo} alt="" /></Link>
           </div>
         </div>
       );

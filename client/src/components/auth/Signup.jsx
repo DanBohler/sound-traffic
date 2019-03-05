@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import AuthService from './AuthService';
 import { Redirect, Link } from 'react-router-dom';
-import Icon from '../auth/logo-blanco.svg'
+import Icon from '../../logo/logo-blanco.svg';
 
 
 class Signup extends Component {

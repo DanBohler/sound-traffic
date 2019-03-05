@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Redirect, Link} from 'react-router-dom';
 import AuthService from './AuthService';
-import Icon from '../auth/logo-blanco.svg';
+import Icon from '../../logo/logo-blanco.svg';
 
 class Login extends Component {
   constructor (props) {
