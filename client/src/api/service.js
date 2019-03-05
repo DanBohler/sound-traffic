@@ -32,6 +32,12 @@ class Service {
       .catch(this.errorHandler)
   }
 
+  listOneArticle = (id_article) => {
+    return this.service.post('/listAll/oneAdInfo', {id_article})
+      .then(res => res.data)
+      .catch(this.errorHandler)
+  }
+
 }
 
 

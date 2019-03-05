@@ -57,7 +57,8 @@ export default class Profile extends Component {
   };
 
   logoutUser = () => {
-    this.authService.logout().then((data) => {
+    this.authService.logout()
+    .then((data) => {
       this.setState({ loggedInUser: null });
     });
   };
@@ -70,8 +71,6 @@ export default class Profile extends Component {
       newState.user.imageUrl = user.imageUrl;
       this.setState({ newState });
     });
-
-    console.log(this.state);
   }
 
   render() {
