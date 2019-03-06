@@ -1,6 +1,7 @@
 const express = require('express');
 const router  = express.Router();
-const User = require('../models/User')
+const User    = require('../models/User')
+const Article = require('../models/Article')
 // include CLOUDINARY:
 const uploader = require('../config/cloudinary');
 
@@ -19,6 +20,16 @@ router.post('/updatephoto', (req, res, next) => {
   })
   .catch(err => {
     console.log(err)
+  })
+})
+
+router.post('/articlephoto' , (req, res, next) => {
+  Article.findOneAndUpdate({imageUrl: req.body.imageUrl},{new:true})
+  .then((article) => {
+    res.json({article})
+  })
+  .catch(error => {
+    console.log(error)
   })
 })
 

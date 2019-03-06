@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ApiService from '../../api/service';
+import MapView from '../map/MapView';
+
 
 import addLogo from '../../logo/baseline-add_box-24px.svg';
 import smsLogo from '../../logo/baseline-email-24px.svg';
@@ -28,7 +30,7 @@ export default class ArticleInfo extends Component {
       let newState = { ...this.state };
       newState.article = article;
       this.setState(newState, () => {
-        console.log(this.state)
+        console.log(this.state);
       });
     });
   }
@@ -36,12 +38,29 @@ export default class ArticleInfo extends Component {
   render() {
     return (
       <div className="adverts-container">
-      <h2>{this.state.article.user}</h2>
-      <h2>{this.state.article.product}</h2>
-      <h3>{this.state.article.price}</h3>
-      <img className="article-img" src={this.state.article.imageUrl} alt="" />      <h2>{this.state.article.description}</h2>
-      <h2>{this.state.article.created}</h2>
-
+        <div className="article-product-price">
+        <div className="chat-product">
+          <h1>{this.state.article.user}</h1>
+          <Link to={'/chat'}><p>chat</p></Link>
+        </div>
+        <div>
+          <div className="article-head">
+            <h2>{this.state.article.product}</h2>
+            <h3>{this.state.article.price}€</h3>
+          </div>
+          <img
+            className="article-img"
+            src={this.state.article.imageUrl}
+            alt=""
+          />
+        <p className="article-description">{this.state.article.description}</p>
+          </div>
+        </div>
+        <div className="article-map">
+        <div className="article-map-styles">
+              <MapView/>
+            </div>
+        </div>
 
         <div className="tool-bar">
           <Link to={'/createad'}>

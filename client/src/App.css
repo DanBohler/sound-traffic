@@ -102,6 +102,16 @@
   border-radius: 4px;
   box-shadow: inset 0 0 47px purple;
   list-style: none;
+  text-decoration: none;
+  list-style-type: none !important
+
+}
+
+.edit-profile input {
+  list-style: none;
+  text-decoration: none;
+  list-style-type: none !important
+
 }
 
 .profile-style h1, h2, ul, p {
@@ -223,6 +233,11 @@ input:focus {
   margin-top: 18px;
 }
 
+.article-map-styles {
+  height: 300px;
+  width: 360px;
+}
+
 .App-link {
   color: #61dafb;
 }
@@ -283,7 +298,7 @@ input:focus {
   font-size: 24px;
 }
 
-.article-img {
+.articles-img {
   max-width: -webkit-fill-available;
   max-width: -webkit-fill-available;
   padding: 15px;
@@ -294,17 +309,59 @@ input:focus {
   border-top-right-radius: 9px;
 }
 
+.article-img {
+  max-width: -webkit-fill-available;
+  max-width: -webkit-fill-available;
+  padding: 10px;
+  margin: 0px 0px 5px 0px;
+  background-color: white;
+  border-bottom-left-radius: 9px;
+  border-bottom-right-radius: 9px;
+  border-top-right-radius: 9px;
+}
+
+.article-map {
+  display: flex;
+}
+
 .article-description {
   color:white;
   padding: 0px 20px 20px 20px;
 
 }
 
-.article-head {
+.articles-head {
   display: -webkit-flex;
   display: flex;
   justify-content: space-between;
   margin: 14px 27px 0px 15px;
+
+}
+
+.articles-head h3 {
+  padding-top: 8px;
+
+}
+
+.articles-head h2 {
+  max-width: 300px;
+  background-color: white;
+  height: 27px;
+  padding-top: 15px;
+  margin: 0px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  color: black;
+  width: 200px;
+  text-align: left;
+  padding-left: 16px;
+}
+
+.article-head {
+  display: -webkit-flex;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 27px 0px 0px;
 
 }
 
@@ -341,4 +398,40 @@ input:focus {
   border: none;
   overflow: hidden;
   outline:none;
+}
+
+.chat-product {
+  display: -webkit-flex;
+  display: grid;
+  justify-content: grid;
+  text-align: left;
+  margin-right: auto;
+  width: fit-content;
+}
+
+.chat-product h1 {
+  display: flex;
+  justify-content: space-around;
+  margin: 10px 5px 0px 5px;
+}
+
+.chat-product a {
+  border-radius: 4px;
+  text-decoration: none;
+  margin: 0px 5px 3px 4px;
+  color: black;
+  background-color: purple;
+  text-align: center;
+  font-size: 23px;
+}
+
+.upload-input-style {
+  margin: 50px auto 20px auto;
+  height: 40px;
+  color: white;
+  background-color: black;
+  border-radius: 7px;
+  font-size: inherit;
+  border-width: 5px;
+  width: 287px;
 }

@@ -7,11 +7,7 @@ const articleSchema = new Schema({
   price: Number,
   description: String,
   coordinates: {lat: Number, lng: Number},
-  imageUrl: { type: String, required: false },
-  created: { 
-    type: Date,
-    default: Date.now
-  }
+  imageUrl: { type: String },
 });
 
 const Article = mongoose.model('Article', articleSchema);

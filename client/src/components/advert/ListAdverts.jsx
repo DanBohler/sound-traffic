@@ -71,12 +71,12 @@ export default class ListAdverts extends Component {
           <div className="article-container">
             <Link to={`/article/${article._id}`} key={article._id}>
               <div className="article-product-price">
-                <div className="article-head">
+                <div className="articles-head">
                   <h2>{article.product}</h2>
                   <h3>{article.price}€</h3>
                 </div>
                 <div>
-                  <img className="article-img" src={article.imageUrl} alt="" />
+                  <img className="articles-img" src={article.imageUrl} alt="" />
                 </div>
               </div>
               <p className="article-description">{article.description}</p>

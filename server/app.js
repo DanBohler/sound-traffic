@@ -64,8 +64,8 @@ app.use('/', index);
 const authRoutes = require('./routes/auth');
 app.use('/auth', authRoutes);
 
-// const articleRoutes = require('./routes/listArticles');
-// app.use('/ad', articleRoutes)
+const advertRoutes = require('./routes/article-upload');
+app.use('/ad', advertRoutes)
 
 const listArticles = require('./routes/list-articles');
 app.use('/listAll', listArticles)

@@ -8,6 +8,7 @@ import AuthService from './components/auth/AuthService';
 import Profile from './components/profile/Profile';
 import ListAdverts from './components/advert/ListAdverts';
 import ArticleInfo from './components/advert/Article';
+import CreateAd from './components/advert/CreateAd';
 
 class App extends Component {
   constructor(props){
@@ -37,6 +38,12 @@ class App extends Component {
       loggedInUser: userObj
     })
   }
+
+  getTheAdvert= (articleObj) => {
+    this.setState({
+      loggedInUser: articleObj
+    })
+  }  
   
   render() {
     return(
@@ -46,8 +53,9 @@ class App extends Component {
           <Route exact path="/profile" component={Profile}/>
           <Route exact path="/adverts" component={ListAdverts}/>
           <Route exact path="/article/:id" component={ArticleInfo}/>
+          <Route exact path="/createad" render={() => <CreateAd getUser={this.getTheUser}/>}/>
           <Route exact path="/signup" render={() => <Signup getUser={this.getTheUser}/>}/>
-          <Route exact path='/login' render={() => <Login getUser={this.getTheUser}/>}/>
+          <Route exact path="/login" render={() => <Login getUser={this.getTheUser}/>}/>
         </Switch>
       </div>
     )
