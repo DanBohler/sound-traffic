@@ -199,6 +199,63 @@
   display: grid;
 }
 
+.createad-styles {
+  display: grid;
+  justify-content: center;
+  text-align: left;
+  margin-top: 150px;
+  margin-top: 20px;
+}
+
+.created-styles form {
+  display: grid;
+  margin-left: 150px
+}
+
+.createad-styles input {
+  font-size: larger;
+  padding-left: 10px;
+  margin-top: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 280px;
+  height: 40px;
+  border-radius: 8px;
+  -moz-box-shadow:    inset 0 0 8px #000000;
+  -webkit-box-shadow: inset 0 0 8px #000000;
+  box-shadow:         inset 0 0 8px #dbdbdb;
+  display: grid;  
+}
+
+.createad-description {
+  display: grid;
+  justify-content: center;
+  text-align: left;
+  margin-top: 150px;
+  margin-top: 5px;  
+}
+
+.createad-description textarea {
+  font-size: large;
+  padding-left: 10px;
+  margin-top: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 280px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px #dbdbdb;
+}
+
+textarea:active {
+  color: purple; 
+}
+
+textarea:focus {
+  outline: none;
+  border: solid purple;
+  box-shadow: 0 0 10px #719ECE;  
+}
+
 input:active { 
   color: purple; 
 }

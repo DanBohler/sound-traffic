@@ -21,6 +21,7 @@ export default class CreateAd extends Component {
     };
     this.apiService = new ApiService();
     this.authService = new AuthService();
+    // this.userLoad();
   }
 
   handleFormSubmit = (event) => {
@@ -55,6 +56,16 @@ export default class CreateAd extends Component {
     this.setState({ ...this.state, [name]: value });
   };
 
+  userLoad() {
+    this.authService.loggedin()
+    .then((user) => {
+      let newState = { ...this.state };
+      newState.user.username = user.username;
+      this.setState({ newState })
+      console.log(newState)
+    });
+  }
+
   handleFileUpload = (e) => {
     console.log('The file to be uploaded is: ', e.target.files[0]);
 
@@ -84,8 +95,9 @@ export default class CreateAd extends Component {
     return (
       <div className="homepage-style">
         <form onSubmit={this.handleFormSubmit}>
-          <div className="signup-styles">
-            <label>product</label>
+        <h1>Create your ad</h1>
+          <div className="createad-styles">
+            <label>product:</label>
             <input
               type="text"
               name="product"
@@ -93,7 +105,7 @@ export default class CreateAd extends Component {
               onChange={(e) => this.handleChange(e)}
             />
             <br></br>
-            <label>price</label>
+            <label>price:</label>
             <input
               type="number"
               name="price"
@@ -101,14 +113,18 @@ export default class CreateAd extends Component {
               onChange={(e) => this.handleChange(e)}
             />
             <br></br>
-            <label>description</label>
-            <input
-              type="text"
-              name="description"
-              value={this.state.description}
-              onChange={(e) => this.handleChange(e)}
-            />               
-          </div>
+            </div>
+            <div className="createad-description">
+            <label>description:</label>     
+            <textarea 
+            name="description" 
+            cols="40" 
+            rows="5"
+            value={this.state.description}
+            onChange={(e) => this.handleChange(e)}
+            >
+            </textarea>          
+            </div>
           <input className="upload-input-style" type="submit" value="upload" />
         </form>
         {this.state.showTickOk ? <p>updated ok</p> : ''}
