@@ -5,6 +5,7 @@ const articleSchema = new Schema({
   user: String,
   product: String,
   price: Number,
+  mail: String,
   description: String,
   coordinates: {lat: Number, lng: Number},
   imageUrl: { type: String },

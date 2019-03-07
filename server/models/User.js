@@ -4,6 +4,7 @@ const Schema   = mongoose.Schema;
 const userSchema = new Schema({
   username: String,
   password: String,
+  email: String,
   imageUrl: { type: String, required: false },
   coordinates: {lat: Number, lng: Number},
   articles: [{type: Schema.Types.ObjectId, ref: 'Article'}]

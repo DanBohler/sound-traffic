@@ -41,7 +41,7 @@ export default class ArticleInfo extends Component {
         <div className="article-product-price">
         <div className="chat-product">
           <h1>{this.state.article.user}</h1>
-          <Link to={'/chat'}><p>chat</p></Link>
+          <Link to={'/mail'}>mail</Link>
         </div>
         <div>
           <div className="article-head">

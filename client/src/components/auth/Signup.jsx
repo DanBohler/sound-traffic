@@ -7,7 +7,7 @@ import Icon from '../../logo/logo-blanco.svg';
 class Signup extends Component {
   constructor(props) {
     super(props);
-    this.state = { username: '', password: '', redirect: false};
+    this.state = { username: '', email: '', password: '',  redirect: false};
     this.service = new AuthService();
   }
 
@@ -15,6 +15,7 @@ class Signup extends Component {
     event.preventDefault();
     const profile = {
       username: this.state.username, 
+      email: this.state.email, 
       password: this.state.password, 
     }
 
@@ -23,6 +24,7 @@ class Signup extends Component {
       .then((response) => {
         this.setState({
           username: '',
+          email: '',
           password: '',
           redirect: true,
         });
@@ -52,6 +54,14 @@ class Signup extends Component {
             type="text"
             name="username"
             value={this.state.username}
+            onChange={(e) => this.handleChange(e)}
+          />
+          <br></br>
+          <label>Email:</label>
+          <input
+            type="text"
+            name="email"
+            value={this.state.email}
             onChange={(e) => this.handleChange(e)}
           />
           <br></br>

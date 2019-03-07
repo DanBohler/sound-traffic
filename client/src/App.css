@@ -1,3 +1,7 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
 .App {
   background-position: top;
   margin: 0px;
@@ -10,7 +14,6 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  font-family: 'Roboto', sans-serif;
   color: white;
   
 }
@@ -68,7 +71,7 @@
   background-color: black;
   border-radius: 7px;
   font-size: inherit;
-  margin-top: 180px;
+  margin-top: 100px;
   border-width: 5px;
   width: 287px;
 }
@@ -112,6 +115,11 @@
   text-decoration: none;
   list-style-type: none !important
 
+}
+
+.edit-profile input:focus {
+  /* outline: thin dotted; */
+  border: 0;
 }
 
 .profile-style h1, h2, ul, p {
@@ -212,7 +220,7 @@
   margin-left: 150px
 }
 
-.createad-styles input {
+.createad-styles input, .createad-styles textarea {
   font-size: larger;
   padding-left: 10px;
   margin-top: 7px;
@@ -491,4 +499,8 @@ input:focus {
   font-size: inherit;
   border-width: 5px;
   width: 287px;
+}
+
+.mail-styles {
+  color:white;
 }

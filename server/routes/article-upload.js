@@ -39,24 +39,9 @@ advertRoutes.post('/createad', (req, res, next) => {
     imageUrl: imageUrl
   })
   
-  // aNewAdvert.save(advert => {
-  //   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-  //   console.log (advert)
-  //   console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
-
-  //   if (err) {
-  //     res
-  //       .status (400)
-  //       .json ({message: 'Saving user to database went wrong.'});
-  //     return;
-  //   }
-  //   res.status (200).json (advert);
-  // })
   aNewAdvert.save()
   .then(newAdvert=>{
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
     res.status(200).json(newAdvert)
-    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
   })
   .catch(err=>console.log(err))
 })
