@@ -1,5 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios'
+import { Link } from 'react-router-dom';
+
+import addLogo from '../../logo/baseline-add_box-24px.svg'
+import smsLogo from '../../logo/baseline-email-24px.svg'
+import profilelogo from '../../logo/baseline-person-24px.svg'
+import listAll from '../../logo/baseline-list_alt-24px.svg'
 
 export default class MailMessage extends Component {
 
@@ -56,6 +62,12 @@ export default class MailMessage extends Component {
             Submit
           </button>
         </form>
+        <div className="tool-bar">
+          <Link to={'/createad'} ><img src={addLogo} alt="" /></Link>
+          <Link to={'/adverts'} ><img src={listAll} alt="" /></Link>
+          <Link to={'/mesagges'} ><img src={smsLogo} alt="" /></Link>
+          <Link to={'/profile'} ><img src={profilelogo} alt="" /></Link>
+          </div>
       </div>
     );
   }

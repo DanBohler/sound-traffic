@@ -7,13 +7,12 @@ import addLogo from '../../logo/baseline-add_box-24px.svg';
 import smsLogo from '../../logo/baseline-email-24px.svg';
 import profilelogo from '../../logo/baseline-person-24px.svg';
 import listAll from '../../logo/baseline-list_alt-24px.svg';
-import Chatmessage from '../chat/ChatMessage';
+// import Chatmessage from '../chat/ChatMessage';
 
 export default class CreateAd extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      user: '',
       product: '',
       price: '',
       description: '',
@@ -23,13 +22,15 @@ export default class CreateAd extends Component {
     };
     this.apiService = new ApiService();
     this.authService = new AuthService();
+    console.log(this.props.username)
     // this.userLoad();
   }
 
   handleFormSubmit = (event) => {
     event.preventDefault();
     const advert = {
-      user: this.state,
+      username: this.props.user.username,
+      email: this.props.user.email,
       product: this.state.product,
       price: this.state.price,
       description: this.state.description,
@@ -41,7 +42,6 @@ export default class CreateAd extends Component {
       .uploadAdvert(advert)
       .then((response) => {
         this.setState({
-          user: '',
           product: '',
           price: '',
           description: '',
@@ -56,13 +56,6 @@ export default class CreateAd extends Component {
   handleChange = (event) => {
     const { name, value } = event.target;
 
-    // function consoleLogElegant(t) {
-    //   console.log('*'.repeat(100));
-    //   console.log(t);
-    //   console.log('*'.repeat(100));
-    // }
-
-    // consoleLogElegant('dan' + 1111);
 
     this.setState({ ...this.state, [name]: value }, function() {
       let buttonDisabledCalculation = true;
@@ -117,8 +110,19 @@ export default class CreateAd extends Component {
   render() {
     return (
       <div className="homepage-style">
+        <h1>Create your ad</h1>
         <form onSubmit={this.handleFormSubmit}>
-          <h1>Create your ad</h1>
+        <div className="edit-profile">
+          <input
+            type="file"
+            name="file"
+            id="file"
+            className="photo-input"
+            onChange={(e) => this.handleFileUpload(e)}
+          />
+          <label for="file">Choose a file</label>
+        </div>
+        <img className="img-profile" src={this.state.imageUrl}/>
           <div className="createad-styles">
             <label>product:</label>
             <input
@@ -154,16 +158,6 @@ export default class CreateAd extends Component {
           />
         </form>
         {this.state.showTickOk ? <p>updated ok</p> : ''}
-        <div className="edit-profile">
-          <input
-            type="file"
-            name="file"
-            id="file"
-            className="photo-input"
-            onChange={(e) => this.handleFileUpload(e)}
-          />
-          <label for="file">Choose a file</label>
-        </div>
         <div className="tool-bar">
           <Link to={'/createad'}>
             <img src={addLogo} alt="" />

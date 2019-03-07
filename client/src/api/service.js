@@ -43,6 +43,7 @@ class Service {
   };
 
   uploadAdvert = (advert) => {    
+    console.log(advert)
     return this.service
     .post('/ad/createad', { advert })
     .then((res) => res.data)

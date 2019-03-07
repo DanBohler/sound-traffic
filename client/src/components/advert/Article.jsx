@@ -40,7 +40,7 @@ export default class ArticleInfo extends Component {
       <div className="adverts-container">
         <div className="article-product-price">
         <div className="chat-product">
-          <h1>{this.state.article.user}</h1>
+          <h1>{this.state.article.username}</h1>
           <Link to={'/mail'}>mail</Link>
         </div>
         <div>

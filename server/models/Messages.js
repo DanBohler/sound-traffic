@@ -2,7 +2,7 @@ const mongoose = require('moongose');
 const Schema   = mongoos.Schema;
 
 const messageSchema = new Schema({
-  user: String,
+  username: String,
   messages: String,
   created: { 
     type: Date,

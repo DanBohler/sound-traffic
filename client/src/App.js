@@ -34,33 +34,47 @@ class App extends Component {
     }
   }
 
+  logOut = ()=>{
+    this.setState({ loggedInUser: null });
+  }
+
   getTheUser= (userObj) => {
     this.setState({
       loggedInUser: userObj
     })
   }
 
-  getTheAdvert= (articleObj) => {
-    this.setState({
-      loggedInUser: articleObj
-    })
-  }  
+  // getTheAdvert= (articleObj) => {
+  //   this.setState({
+  //     loggedInUser: articleObj
+  //   })
+  // }  
   
   render() {
+    if(!this.state.loggedInUser){
     return(
       <div className="App">
         <Switch>
           <Route exact path="/" component={HomePage}/>
-          <Route exact path="/profile" component={Profile}/>
+          <Route exact path="/signup" render={() => <Signup getUser={this.getTheUser}/>}/>
+          <Route exact path="/login" render={() => <Login getUser={this.getTheUser}/>}/>
+          <Route exact path="/adverts" component={ListAdverts}/>
+         </Switch>
+      </div>
+          )
+        }else{
+          return(
+            <div className="App">
+         <Switch>
+          <Route exact path="/profile" render={() => <Profile user={this.state} logOut={this.logOut}/>}/>
           <Route exact path="/adverts" component={ListAdverts}/>
           <Route exact path="/article/:id" component={ArticleInfo}/>
           <Route exact path="/mail" component={MailMessage}/>
-          <Route exact path="/createad" render={() => <CreateAd getUser={this.getTheUser}/>}/>
-          <Route exact path="/signup" render={() => <Signup getUser={this.getTheUser}/>}/>
-          <Route exact path="/login" render={() => <Login getUser={this.getTheUser}/>}/>
-        </Switch>
-      </div>
-    )
+          <Route exact path="/createad" render={() => <CreateAd user={this.state.loggedInUser}/>}/>
+         </Switch>
+       </div>
+      )
+    }   
   }
 }
 

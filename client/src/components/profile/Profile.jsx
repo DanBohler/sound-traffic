@@ -58,7 +58,7 @@ export default class Profile extends Component {
   logoutUser = () => {
     this.authService.logout()
     .then((data) => {
-      this.setState({ loggedInUser: null });
+      this.props.logOut()
     });
   };
 
@@ -110,6 +110,8 @@ export default class Profile extends Component {
               <MapView/>
             </div>
           </div>
+
+          <h1>Your adverts:</h1>
           <div className="tool-bar">
           <Link to={'/createad'} ><img src={addLogo} alt="" /></Link>
           <Link to={'/adverts'} ><img src={listAll} alt="" /></Link>

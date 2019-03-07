@@ -16,15 +16,15 @@ class Login extends Component {
     const password = this.state.password;
 
     this.service
-      .login (username, password)
-      .then (response => {
+    .login (username, password)
+    .then (response => {
+      console.log ("ssssssssssssaaaaaa");
         this.setState ({
           username: username,
           password: password,
           redirect: true,
           error: false,
         });
-        console.log (response);
         this.props.getUser (response);
       })
       .catch (error => {
