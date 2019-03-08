@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import apiService from '../../api/service';
+import ApiService from '../../api/service';
 import AuthService from '../auth/AuthService';
 import MapView from '../map/MapView';
 
@@ -17,20 +17,35 @@ export default class Profile extends Component {
     },
     zoom: 4,
   };
-
+  
   constructor(props) {
     super(props);
     this.state = {
       user: {
+        articles: null,
         username: '',
         imageUrl: '',
         coordinates: { lat: null, lng: null },
       },
     };
-
+    
     this.authService = new AuthService();
-    this.apiService = new apiService();
+    this.apiService = new ApiService();
     this.userLoad();
+    
+  }
+
+ 
+  getUserArticles() {
+    const user = this.state.user.username
+    this.apiService.listMyAds(user)
+    .then((articles) => {
+      let newState = {...this.state};
+      newState.user.articles = articles;
+      this.setState(newState, () => {});
+      console.log(this.state.user.articles.data)
+      console.log(articles.data)
+    });
   }
 
   handleFileUpload = (e) => {
@@ -69,13 +84,35 @@ export default class Profile extends Component {
       newState.user.username = user.username;
       newState.user.imageUrl = user.imageUrl;
       this.setState({ newState });
+      this.getUserArticles();
+
     });
   }
 
+
   render() {
+    let data = this.state.user.articles?(
+      this.state.user.articles.data.map((article, index)=>{
+        return(
+          <div className="article-container">
+          <div className="article-product-price">
+            <div className="articles-head">
+              <h2>{article.product}</h2>
+              <h3>{article.price}€</h3>
+            </div>
+            <div>
+              <img className="articles-img" src={article.imageUrl} alt="" />
+            </div>
+          </div>
+         <p className="article-description">{article.description}</p>
+     </div>
+        )
+      })
+    ):(<h2></h2>)
+    
     if (this.state.user) {
       return (
-        <div className="homepage-style">
+        <div className="profile-page-style">
           <div className="profile-container">
             <div className="ul-container">
               <div className="align-profile">
@@ -110,8 +147,10 @@ export default class Profile extends Component {
               <MapView/>
             </div>
           </div>
-
-          <h1>Your adverts:</h1>
+          <div className="advice-name">
+          <h1>your ads:</h1>
+          {data}
+          </div>
           <div className="tool-bar">
           <Link to={'/createad'} ><img src={addLogo} alt="" /></Link>
           <Link to={'/adverts'} ><img src={listAll} alt="" /></Link>

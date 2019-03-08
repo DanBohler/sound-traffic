@@ -34,18 +34,20 @@ export default class MailMessage extends Component {
 
   render() {
     return (
-      <div className="mail-styles">
-        <h1>Contact User</h1>
+      <div className="homepage-style">
+      <div className="advice-name">
+        <h1>contact the user</h1>
+      </div>
         <form
           id="contact-form"
           onSubmit={this.handleSubmit.bind(this)}
           method="POST"
         >
-          <div className="form-group">
+          <div className="createad-styles">
             <label for="name">Name</label>
             <input type="text" className="form-control" id="name" />
           </div>
-          <div className="form-group">
+          <div className="createad-styles">
             <label for="exampleInputEmail1">Email address</label>
             <input
               type="email"
@@ -54,11 +56,11 @@ export default class MailMessage extends Component {
               aria-describedby="emailHelp"
             />
           </div>
-          <div className="form-group">
+          <div className="createad-description-mail">
             <label for="message">Message</label>
-            <textarea className="form-control" rows="5" id="message" />
+            <textarea  rows="12" id="message" />
           </div>
-          <button type="submit" className="btn btn-primary">
+          <button type="submit" className="upload-input-style">
             Submit
           </button>
         </form>

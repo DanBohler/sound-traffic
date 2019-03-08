@@ -12,7 +12,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
   font-size: calc(10px + 2vmin);
   color: white;
   
@@ -30,6 +30,11 @@
   width: -webkit-fill-available;
   height: -webkit-fill-available;
   padding: 10px;
+}
+
+.profile-page-style {
+  width: -webkit-fill-available;
+  padding: 10px 0px 100px 0px;
 }
 
 .home-container{
@@ -106,8 +111,7 @@
   box-shadow: inset 0 0 47px purple;
   list-style: none;
   text-decoration: none;
-  list-style-type: none !important
-
+  list-style-type: none !important;
 }
 
 .edit-profile input {
@@ -120,6 +124,39 @@
 .edit-profile input:focus {
   /* outline: thin dotted; */
   border: 0;
+}
+
+.upload-container {
+  display: flex;
+  justify-content: space-around;
+  justify-content: space-between;
+  margin: 0px 20px 0px 20px;
+}
+
+.createad-edit-profile {
+display: grid;
+
+}
+
+.createad-edit-profile label {
+  font-size: large;
+  padding: 10px;
+  width: -moz-min-content;
+  border-radius: 8px;
+  box-shadow: inset 0 0 100px purple;
+  height: 21px;
+
+}
+
+.createad-edit-profile input {
+  list-style: none;
+  text-decoration: none;
+  list-style-type: none !important
+}
+
+.createad-edit-profile input:focus {
+  border: 0;
+
 }
 
 .profile-style h1, h2, ul, p {
@@ -148,7 +185,10 @@
 }
 
 .align-profile {
-  justify-content: space-between
+  justify-content: space-between;
+  height: 100px;
+  margin-bottom: 40px;
+
 }
 
 .profile-user {
@@ -211,8 +251,7 @@
   display: grid;
   justify-content: center;
   text-align: left;
-  margin-top: 150px;
-  margin-top: 20px;
+
 }
 
 .created-styles form {
@@ -221,13 +260,13 @@
 }
 
 .createad-styles input, .createad-styles textarea {
-  font-size: larger;
+  font-size: large;
   padding-left: 10px;
   margin-top: 7px;
   margin-left: auto;
   margin-right: auto;
-  width: 280px;
-  height: 40px;
+  width: 300px;
+  height: 30px;
   border-radius: 8px;
   -moz-box-shadow:    inset 0 0 8px #000000;
   -webkit-box-shadow: inset 0 0 8px #000000;
@@ -244,14 +283,57 @@
 }
 
 .createad-description textarea {
+  font-family: roboto;
   font-size: large;
   padding-left: 10px;
   margin-top: 7px;
   margin-left: auto;
   margin-right: auto;
-  width: 280px;
+  width: 300px;
   border-radius: 8px;
   box-shadow: inset 0 0 8px #dbdbdb;
+}
+
+.createad-description-mail {
+  display: grid;
+  justify-content: center;
+  text-align: left;
+  margin-top: 150px;
+  margin-top: 5px; 
+}
+
+.createad-description-mail textarea{
+  font-size: large;
+  padding-left: 10px;
+  margin-top: 7px;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px #dbdbdb;
+}
+
+.createad-price {
+  font-size: large;
+  display: block;
+  justify-content: left;
+  text-align: left;
+  margin-top: 10px;
+  margin-left: 11px;
+  width: fit-content;
+}
+
+.createad-price input, .createad-price textarea  {
+  font-size: large;
+  padding-left: 10px;
+  margin-top: 5px;
+  margin-left: 0px;
+  margin-right: auto;
+  width: 92px;
+  height: 30px;
+  border-radius: 8px;
+  box-shadow: inset 0 0 8px #dbdbdb;
+  display: grid;
 }
 
 textarea:active {
@@ -282,7 +364,17 @@ input:focus {
   flex: 2;
   width: 100px;
   height: 100px;
-  border-radius: 10%;
+  border-radius: 8px;
+  
+
+}
+.img-createad {
+  flex: 2;
+  width: 147px;
+  height: 118px;
+  border-radius: 8px;
+  margin-top: 8px;
+
 }
 
 .photo-input {
@@ -491,16 +583,27 @@ input:focus {
 }
 
 .upload-input-style {
-  margin: 50px auto 20px auto;
+  margin: 34px 13px 20px auto;
   height: 40px;
   color: white;
   background-color: black;
   border-radius: 7px;
   font-size: inherit;
-  border-width: 5px;
-  width: 287px;
+  width: 180px;
+  box-shadow: 0px -6px 36px 0px purple;
+
+}
+
+.price-container{
+  display: flex
 }
 
 .mail-styles {
   color:white;
+}
+
+.advice-name h1 {
+  margin: 20px 0px 17px 0px;
+  font-weight: inherit;
+  padding-top: 10px;
 }

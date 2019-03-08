@@ -110,9 +110,12 @@ export default class CreateAd extends Component {
   render() {
     return (
       <div className="homepage-style">
-        <h1>Create your ad</h1>
+      <div className="advice-name">
+        <h1>create your ad:</h1>
+      </div>
         <form onSubmit={this.handleFormSubmit}>
-        <div className="edit-profile">
+        <div className="upload-container">
+        <div className="createad-edit-profile">
           <input
             type="file"
             name="file"
@@ -122,7 +125,10 @@ export default class CreateAd extends Component {
           />
           <label for="file">Choose a file</label>
         </div>
-        <img className="img-profile" src={this.state.imageUrl}/>
+        <div className="align-profile">
+        <img className="img-createad" src={this.state.imageUrl} alt=""/>
+        </div>
+        </div>
           <div className="createad-styles">
             <label>product:</label>
             <input
@@ -131,22 +137,24 @@ export default class CreateAd extends Component {
               value={this.state.product}
               onChange={(e) => this.handleChange(e)}
             />
-
-            <label>price:</label>
-            <input
-              type="number"
-              name="price"
-              value={this.state.price}
-              onChange={(e) => this.handleChange(e)}
-            />
           </div>
           <div className="createad-description">
             <label>description:</label>
             <textarea
               name="description"
               cols="40"
-              rows="5"
+              rows="8"
               value={this.state.description}
+              onChange={(e) => this.handleChange(e)}
+            />
+          </div>
+          <div className="price-container">           
+          <div className="createad-price">
+          <label>price:</label>
+            <input
+              type="number"
+              name="price"
+              value={this.state.price}
               onChange={(e) => this.handleChange(e)}
             />
           </div>
@@ -156,6 +164,7 @@ export default class CreateAd extends Component {
             value="upload"
             disabled={this.state.buttonDisabled}
           />
+          </div>
         </form>
         {this.state.showTickOk ? <p>updated ok</p> : ''}
         <div className="tool-bar">

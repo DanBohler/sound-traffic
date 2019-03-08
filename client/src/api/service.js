@@ -42,6 +42,13 @@ class Service {
       .catch(this.errorHandler);
   };
 
+  listMyAds = (article) => {
+    return this.service
+    .post('/listAll/myads',{article})
+    .then((res) => res.data)
+    .catch(this.errorHandler);
+  }
+
   uploadAdvert = (advert) => {    
     console.log(advert)
     return this.service

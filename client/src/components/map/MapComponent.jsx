@@ -113,7 +113,7 @@ const stylesArr = [
 const MyMapComponent = compose(
   withProps({
     googleMapURL:
-    `https://maps.googleapis.com/maps/api/js?key=&callback=initMap`,
+    `https://maps.googleapis.com/maps/api/js?key=AIzaSyAK0fgxdZCgVhbxPLYqUXejloir3chZSG4&callback=initMap`,
     loadingElement: <div style={{ height: `100%` }} />,
     containerElement: <div style={{ height: `100%` }} />,
     mapElement: <div style={{ height: `100%` }} />,

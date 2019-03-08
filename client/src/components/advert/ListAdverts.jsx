@@ -24,7 +24,8 @@ export default class ListAdverts extends Component {
   }
 
   getListArticles() {
-    this.apiService.listAdverts().then((articles) => {
+    this.apiService.listAdverts()
+    .then((articles) => {
       let newState = { ...this.state };
       newState.articles = articles;
       newState.filterList = articles;

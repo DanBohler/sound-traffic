@@ -43,13 +43,8 @@ class App extends Component {
       loggedInUser: userObj
     })
   }
-
-  // getTheAdvert= (articleObj) => {
-  //   this.setState({
-  //     loggedInUser: articleObj
-  //   })
-  // }  
   
+
   render() {
     if(!this.state.loggedInUser){
     return(
@@ -66,12 +61,12 @@ class App extends Component {
           return(
             <div className="App">
          <Switch>
-          <Route exact path="/profile" render={() => <Profile user={this.state} logOut={this.logOut}/>}/>
-          <Route exact path="/adverts" component={ListAdverts}/>
-          <Route exact path="/article/:id" component={ArticleInfo}/>
-          <Route exact path="/mail" component={MailMessage}/>
-          <Route exact path="/createad" render={() => <CreateAd user={this.state.loggedInUser}/>}/>
-         </Switch>
+            <Route exact path="/mail" component={MailMessage}/>
+            <Route exact path="/profile" render={() => <Profile logOut={this.logOut}/>}/>
+            <Route exact path="/adverts" component={ListAdverts}/>
+            <Route exact path="/article/:id" component={ArticleInfo}/>
+            <Route exact path="/createad" render={() => <CreateAd user={this.state.loggedInUser}/>}/>
+           </Switch>
        </div>
       )
     }   
