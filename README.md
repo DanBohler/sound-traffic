@@ -1,7 +1,7 @@
 # sound-traffic
 
 Es una aplicación web en la que podemos gestionar nuestro perfil de usuario para poder participar en una red de compra-venta
-de instrumentos musicales.
+de instrumentos musicales de segundamano.
 
 La app consta de un registro de usuario y autenticación para poder acceder a la compra-venta.
 Podremos subir una foto de perfil, subir nuestros instrumentos a vender, buscar intrumentos de otros usuarios y por último
